@@ -1,5 +1,13 @@
-<html>
-<div id="welcome_header">
-	<h1> Welcome to Travel Locations </h1>
+<div class="location_gallery">
+	<% @locations.shuffle.each do |location|%>
+	<div class="image">
+		<% image = location.photos%>
+		<img src="<%= "/images/#{image}" %>">
+		<div class="label">
+			<% name = location.name%>
+			<%=name%>
+		</div>
+		<div class="labelbanner"></div>
+	</div>
+	<%end%>
 </div>
-</html>

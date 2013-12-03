@@ -1,15 +1,24 @@
 <html>
 <head>
 	<link rel="shortcut icon" href="/images/logos/favicon.ico" >
-	<title>27 Travel Locations</title>
+	<title>27 Travel Destinations</title>
 </head>
 <body>
 <div class="header">
+	<div class="banner_top"></div>
 	<div class="banner"></div>
 	<div class="banner_circle"></div>
 	<link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
 	<img src="/images/logos/main_logo.png"/>
-	<h1>Travel Locations</h1>
+	<h1>Travel Destinations</h1>
+	<select class="dropdown">
+		<% @locations.sort_by!{|location| location.name}.each do |location|%>
+			<% name = location.name %>
+			<option value="<%="#{name}"%>"><%= name %></option>
+		<% end %>
+	</select>
+	<button type="button" class="home_button"><img src="/images/logos/homewhiter.png"/></button>
+	<button type="button" class="map_button"><img src="/images/logos/globewhite.png"/></button>
 </div>
 <div>
 	<%= yield %>

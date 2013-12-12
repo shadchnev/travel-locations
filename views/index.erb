@@ -1,0 +1,17 @@
+<div class="location_gallery">
+	<% @locations.shuffle.each do |location|%>
+	<div class="image">
+		<% image = location.photos%>
+		<% lname = location.name%>
+		<form action="/location">
+			<input type="hidden" name="name" value="<%= lname %>">
+			<button type="submit" class="location_button"><img src="<%= "/images/#{image}" %>"></button>
+			<div class="label">
+				<% name = location.name%>
+				<%=name%>
+			</div>
+			<div class="labelbanner"></div>
+		</form>
+	</div>
+	<%end%>
+</div>

@@ -1,0 +1,60 @@
+<html>
+<head>
+	<link rel="shortcut icon" href="/images/logos/favicon.ico" >
+	<title>27 Travel Destinations</title>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	$(function(){
+		$('select.dropdown').change(function(){
+			var destination = $(this).val();
+			console.log(destination);
+			window.location.href = "/location?name="+destination;
+		});
+	});
+
+	</script>
+<div class="header">
+	<div class="banner_top"></div>
+	<div id='top-buttons'>
+		<% if session[:user_id] %>
+			<form id='log-out' action='/sessions' method='post'>
+				<input type='submit' value='Log Out'>
+				<input type='hidden' name='_method' value='delete'>
+			</form>
+		<% else %>
+			<form id='top-button' action='/sessions/new' method='get'>
+				<input type='submit' value='Log In'>
+			</form>
+			<form id='top-button' action='/users/new' method='get'>
+				<input type='submit' value='Sign Up' action='/users/new'>
+			</form>
+		<% end %>
+	</div>
+	<div class="banner"></div>
+	<div class="banner_circle"></div>
+	<link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
+	<img src="/images/logos/main_logo.png"/>
+	<h1>Travel Destinations</h1>
+	<% if @locations %>
+		<select class="dropdown">
+			<% @locations.sort_by!{|location| location.name}.each do |location|%>
+				<% name = location.name %>
+				<option value="<%=name%>" <%= "selected" if @current_location.name == name%>><%= name %></option>
+			<% end %>
+		</select>
+	<% end %>
+	<form action="/">
+		<button type="submit" class="home_button"><img src="/images/logos/homewhiter.png"/></button>
+	</form>
+	<form action="/profile">
+		<button type="submit" class="profile_button"><img src="/images/logos/profile_logo.png"/></button>
+	</form>
+	<button type="button" class="map_button"><img src="/images/logos/globewhite.png"/></button>
+</div>
+<div>
+	<%= yield %>
+</div>
+</body>
+</html>

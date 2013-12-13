@@ -1,3 +1,5 @@
-<%image = @current_location.photos%>
-<img class="detail_img" src="<%= "/images/#{image}" %>">
-<h2><%=@current_location.location%></h2>
+<div id='detail_page'>
+	<%image = @current_location.photos%>
+	<img class="detail_img" src="<%= "/images/#{image}" %>">
+	<h2 id='detail_location'><%=@current_location.location%></h2>
+</div>

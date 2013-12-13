@@ -1,0 +1,3 @@
+class FavLocation < Location
+	
+end

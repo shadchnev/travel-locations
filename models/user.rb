@@ -9,7 +9,7 @@ class User
 	validates_confirmation_of :password, message: "Sorry, your passwords don't match"
 	validates_uniqueness_of :email, message: "This email is already taken"
 
-	has n, :fav_locations, 'Location', :required => false
+	has n, :favlocations, 'Location' , :required => false, :through => :fav_locations_users
 
 	property :id,  Serial
 	property :name, String

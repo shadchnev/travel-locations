@@ -157,7 +157,7 @@ form#top-button {
 
 form#log-out {
 	display: inline-block;
-	width: 40px;
+	width: 42px;
 	margin: 0;
 	text-align: right;
 }
@@ -167,8 +167,15 @@ form#log-out {
 	padding-top: 90px;
 }
 
-h2 {
-	color: red;
+h2#detail_location{
+	color: rgb(214, 214, 214);
+	display: inline;
+	position: relative;
+	bottom: 60px;
+	left: 20px;
+	font-size: 45;
+	text-shadow: 2px 2px black;
+	margin: 0;
 }
 
 #sign-up-form {
@@ -206,6 +213,12 @@ form#log-in-form {
 	width: 100%;
 	text-align: center;
 	margin-top: 300px;
+}
+
+div#profile_welcome {
+	top: 200px;
+	left: 300px;
+	position: absolute;
 }
 
 body {

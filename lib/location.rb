@@ -1,4 +1,4 @@
-class Location
+class LocalLocation
 
 	attr_accessor :name, :location, :photos, :description, :coordinates, :wiki_link
 

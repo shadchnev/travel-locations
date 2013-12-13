@@ -16,8 +16,7 @@ DataMapper.setup(:default, "sqlite:#{Dir.pwd}/data/travel_location_#{env}")
 require './models/user'
 require './models/location'
 require './models/photo'
-require './models/relationships/fav_locations_users'
-require './models/fav_location'
+require './models/relationships/fav_locations_user'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!

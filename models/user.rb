@@ -1,6 +1,5 @@
 require 'bcrypt'
-
-
+	
 class User
 	include DataMapper::Resource
 
@@ -9,7 +8,8 @@ class User
 	validates_confirmation_of :password, message: "Sorry, your passwords don't match"
 	validates_uniqueness_of :email, message: "This email is already taken"
 
-	has n, :favlocations, 'Location' , :required => false, :through => :fav_locations_users
+	has n, :fav_locations_users # this makes :through => :fav_locations_users work
+	has n, :favlocations, "Location", :through => :fav_locations_users, :via => :fav_location
 
 	property :id,  Serial
 	property :name, String

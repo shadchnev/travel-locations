@@ -7,7 +7,8 @@ class Location
 	property :description, Text
 	property :wiki_link, String, :required => false
 
-	has n, :photos, :required => false
-	has n, :users, :required => false, :through => :fav_locations_users
+	has n, :photos
+  has n, :fav_locations_users, :child_key => :fav_location
+	has n, :users, :through => :fav_locations_users # :through must refer to another "has n" in the same model
 
 end

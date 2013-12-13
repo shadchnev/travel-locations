@@ -15,5 +15,6 @@ file.each do |line|
 	puts destination.inspect
 	photo = Photo.create(:path => image)
 	destination.photos << photo
+  destination.save!
 end
 

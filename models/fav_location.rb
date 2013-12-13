@@ -1,3 +1,0 @@
-class FavLocation < Location
-	
-end
